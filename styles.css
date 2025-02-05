@@ -1,0 +1,88 @@
+#huvudmeny {
+    display: flex;
+    /* flex-direction: column; */
+    gap: 10px;
+
+    margin: 0;
+    padding: 0;
+    border: 1px solid #999;
+
+    
+}
+
+#huvudmeny li {
+    flex: 1;
+    /* width: 300px; */
+    /* outline: thin solid black; */
+    list-style-type: none;
+    text-align: center;
+    background-color: rgb(219, 219, 219);
+
+    position: relative;
+}
+
+#huvudmeny a {
+    text-decoration: none;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: #226a00;
+    /* background-color: beige; */
+    padding: 10px;
+    display: block;
+}
+
+#huvudmeny a:hover {
+    background-color: #226a00;
+    color: white;
+    outline: 2px solid rgb(255, 0, 187);
+    cursor: help;
+}
+
+
+
+/* DROPDOWNTIME */
+
+.dropdown-menu {
+    visibility: hidden;
+
+    display: block;
+    position: absolute;
+
+    left: 0px;
+    width: 100%;
+    padding-left: 0px;
+    
+    text-align: left;
+    z-index: 1;
+
+
+    opacity: 0; /* 🔹 Gör den osynlig från start */
+    transform: translateY(-20px); /* 🔹 Lyft upp dropdownen 10px */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.3s ease, transform 1s ease, visibility 0.3s;
+}
+
+.dropdown-menu a {
+    text-align: left;
+}
+
+/* 🔹 FIX: Dropdown visas nu korrekt vid hover på huvudmenyn */
+#huvudmeny li:hover .dropdown-menu {
+    /* display: block; */
+    visibility: visible;
+
+    opacity: 1; /* 🔹 Fadar in */
+    transform: translateY(0); /* 🔹 Slide-in */
+
+    
+}
+
+#huvudmeny li:not(:hover) .dropdown-menu {
+    transition-delay: 1s; /* 🔹 Fördröjer försvinnandet */
+}
+
+
+@media (width <= 600px){
+    #huvudmeny{
+        flex-direction: column;
+    }
+}
